@@ -1,0 +1,20 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"typescript.tsdk": "./node_modules/typescript/lib/",
+	"editor.formatOnSave": true,
+	"editor.wrappingColumn": 140,
+	"editor.rulers": [
+		140
+	],
+	"editor.tabSize": 2,
+	"files.trimTrailingWhitespace": true,
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		".history": true,
+		"**/.nyc_output": true,
+		"**/.sonar": true,
+		"**/.awcache": true,
+		"**/npm-debug.*": true
+	}
+}

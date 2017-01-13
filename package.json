@@ -1,0 +1,32 @@
+{
+	"name": "mower",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Hongbo LU <gitawego@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"coverage": "../../node_modules/.bin/nyc npm test",
+		"test": "npm run build:dev && node ./scripts/test.js",
+		"build": "rm -rf ./dist && tsc --sourcemap false",
+		"build:dev": "rm -rf ./dist && tsc"
+	},
+	"nyc": {
+		"include": [
+			"dist/**/*.js"
+		],
+		"exclude": [
+			"**/*.spec.js"
+		],
+		"reporter": [
+			"lcov",
+			"text"
+		]
+	},
+	"devDependencies": {
+		"@types/jasmine": "^2.5.40",
+		"jasmine-spec-reporter": "^3.1.0",
+		"nyc": "^10.0.0",
+		"source-map-support": "^0.4.8",
+		"typescript": "^2.1.5"
+	}
+}

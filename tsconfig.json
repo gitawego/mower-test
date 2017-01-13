@@ -1,0 +1,45 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"declaration": true,
+		"noLib": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"sourceMap": true,
+		"pretty": true,
+		"allowUnreachableCode": true,
+		"allowUnusedLabels": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": false,
+		"noImplicitUseStrict": false,
+		"noFallthroughCasesInSwitch": false,
+		"noEmitOnError": false,
+		"allowSyntheticDefaultImports": true,
+		"suppressExcessPropertyErrors": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"lib": [
+			"es2015",
+			"es2016",
+			"dom"
+		],
+		"outDir": "dist/",
+		"listFiles": false
+	},
+	"include": [
+		"src/**/*",
+		"typings/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"srv-dist",
+		"deploy",
+		"dist",
+		"tmp"
+	],
+	"compileOnSave": false,
+	"atom": {
+		"rewriteTsconfig": false
+	}
+}
