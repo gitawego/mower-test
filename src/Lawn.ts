@@ -1,5 +1,5 @@
 import { EventEmitter2 } from 'eventemitter2';
-import { Mower, Position } from './Mower';
+import { Mower, Position, Direction } from './Mower';
 
 export interface LawnSize {
 	x: number;
@@ -8,6 +8,20 @@ export interface LawnSize {
 export class Lawn extends EventEmitter2 {
 	public mowers: Mower[] = [];
 	private workingMower: Mower = null;
+	static schedule(script: string) {
+		const lines = script.split('\n');
+		const size = lines.shift().trim().split(' ');
+		const lawn = new Lawn({
+			x: Number(size[0]),
+			y: Number(size[1])
+		});
+		return {
+			lawn,
+			run() {
+				return lawn.run(lines);
+			}
+		}
+	}
 	constructor(public size: LawnSize) {
 		super();
 	}
@@ -27,9 +41,22 @@ export class Lawn extends EventEmitter2 {
 		this.mowers.length = 0;
 	}
 	addMower(position: Position) {
-		this.mowers.push(new Mower(position, this));
+		const mower = new Mower(position, this);
+		this.mowers.push(mower);
+		return mower;
 	}
-	schedule() {
-
+	run(commands: string[]) {
+		const l = commands.length;
+		for (let i = 0; i < l;) {
+			if (i % 2 === 0) {
+				const pos = commands[i].split(' ');
+				const mower = this.addMower({
+					x: Number(pos[0]),
+					y: Number(pos[1]),
+					d: <Direction>pos[2]
+				});
+				mower.command(commands[++i]);
+			}
+		}
 	}
 }
