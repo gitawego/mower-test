@@ -109,7 +109,7 @@ export class Mower extends EventEmitter2 {
 		const colision = this.checkColision(nextMove);
 		if (colision.hasColision) {
 			this.emit('warn', {
-				error: 'colision',
+				warning: 'colision',
 				mower: colision.mower
 			});
 			return;
