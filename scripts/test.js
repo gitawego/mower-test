@@ -12,20 +12,6 @@ if (process.env.TEST_FILES) {
 		return d.trim();
 	});
 }
-global['testAsync'] = function testAsync(runAsync) {
-	return (done) => {
-		runAsync()
-			.then(done)
-			.catch(e => {
-				console.error('-------failed-----', e);
-				try {
-					fail(e);
-				} catch (e) {
-					done();
-				}
-			});
-	};
-};
 jasmine.loadConfig(config);
 
 jasmine.execute();

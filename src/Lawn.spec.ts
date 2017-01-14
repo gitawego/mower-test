@@ -3,8 +3,8 @@ import { Mower } from './Mower';
 import * as fs from 'fs';
 
 describe('Lawn', () => {
-	const script = fs.readFileSync(`${process.cwd()}/test/script.txt`, 'utf8');
-	it('should run two mowers with final results: 1 3 N and 5 1 E', () => {
+	it('should run mowers from a file content', () => {
+		const script = fs.readFileSync(`${process.cwd()}/test/script.txt`, 'utf8');
 		const lawn = Lawn.schedule(script);
 		lawn.run();
 		expect(lawn.mowers.length).toEqual(2);
@@ -47,7 +47,7 @@ describe('Lawn', () => {
 			d: 'E'
 		});
 	});
-	it('should receive event about movement', (done) => {
+	it('should receive events about movement', () => {
 		const lawn = new Lawn({
 			x: 5,
 			y: 5
@@ -73,6 +73,5 @@ describe('Lawn', () => {
 		{ x: 1, y: 1, d: 'N' },
 		{ x: 1, y: 2, d: 'N' },
 		{ x: 1, y: 3, d: 'N' }]);
-		done();
 	});
 })
