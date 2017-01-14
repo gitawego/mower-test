@@ -11,7 +11,7 @@ Lawn.schedule(your_script).run();
 ### events: change, warn
 
 ```js
-const lawn.schedule(your_script);
+const lawn = Lawn.schedule(your_script);
 lawn.on('change',(evt)=>{
 	console.log(evt.mower);
 	// you can get curent position
