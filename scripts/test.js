@@ -3,9 +3,7 @@ var Jasmine = require('jasmine');
 var jasmine = new Jasmine();
 var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
-jasmine.configureDefaultReporter({
-	print: 'noop'
-});
+jasmine.configureDefaultReporter({});
 jasmine.addReporter(new SpecReporter());
 const config = require(`${process.cwd()}/jasmine.json`);
 if (process.env.TEST_FILES) {

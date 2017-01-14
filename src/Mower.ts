@@ -28,7 +28,7 @@ export class Mower extends EventEmitter2 {
 		N: ["y", 1],
 		S: ["y", -1],
 		E: ["x", 1],
-		w: ["x", -1]
+		W: ["x", -1]
 	}
 	constructor(private position: Position, private lawn: Lawn) {
 		super();
@@ -89,10 +89,10 @@ export class Mower extends EventEmitter2 {
 	getNextMove(): NextMove {
 		const moveConfig = Mower.MOVE_DIRECTION[this.position.d];
 		const nextMove: NextMove = {
-			axis: moveConfig[0],
+			axis: <Axis>moveConfig[0],
 			value: 0
 		};
-		nextMove['value'] = this.position[nextMove.axis] + moveConfig[1];
+		nextMove['value'] = this.position[nextMove.axis] + Number(moveConfig[1]);
 		if (nextMove['value'] < 0) {
 			nextMove['value'] = 0;
 		} else if (nextMove['value'] > this.lawn.size[nextMove.axis]) {

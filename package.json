@@ -5,7 +5,7 @@
 	"author": "Hongbo LU <gitawego@gmail.com>",
 	"license": "MIT",
 	"scripts": {
-		"coverage": "../../node_modules/.bin/nyc npm test",
+		"coverage": "nyc npm test",
 		"test": "npm run build:dev && node ./scripts/test.js",
 		"build": "rm -rf ./dist && tsc --sourcemap false",
 		"build:dev": "rm -rf ./dist && tsc"
@@ -25,7 +25,9 @@
 	"devDependencies": {
 		"@types/eventemitter2": "^2.2.1",
 		"@types/jasmine": "^2.5.40",
+		"@types/node": "^7.0.0",
 		"codelyzer": "^2.0.0-beta.4",
+		"jasmine": "^2.5.3",
 		"jasmine-spec-reporter": "^3.1.0",
 		"nyc": "^10.0.0",
 		"source-map-support": "^0.4.8",
